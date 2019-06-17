@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Categorias
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-segment (ionChange)="segmentChanged($event)" color="secondary">
+  <ion-slides [options]="sliderOption">
+    <ion-slide *ngFor="let categoria of categorias">
+        <ion-segment-button value="{{categoria.valor}}">
+            <ion-label>{{categoria.nombre}}</ion-label>
+        </ion-segment-button>
+    </ion-slide>
+  </ion-slides>
+  
+</ion-segment>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-xm="12" size-sm="6" size-md="4" size-lg="3"
+      *ngFor="let categoria of lista">
+          <ion-card >
+            <a target="_blank" href="{{categoria.url}}">
+              <ion-card-header>
+                  <ion-card-subtitle>{{categoria.country}}</ion-card-subtitle>
+                  <ion-card-title>{{categoria.name}}</ion-card-title>
+                </ion-card-header>
+              <ion-card-content>
+                <p>{{categoria.description}}</p>
+              </ion-card-content>
+            </a>
+            </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
