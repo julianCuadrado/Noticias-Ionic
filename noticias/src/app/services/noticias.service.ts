@@ -32,7 +32,7 @@ export class NoticiasService {
 
   constructor(private http:HttpClient) { }
 
-  getNoticias(){
-    return this.http.get<Respuesta>('https://newsapi.org/v2/top-headlines?' +'country=us&apiKey='+environment.apiKey);
+  getNoticias(categoria:string){
+    return this.http.get<Respuesta>('https://newsapi.org/v2/top-headlines?country=us&category='+categoria+'&apiKey='+environment.apiKey);
   }
 }

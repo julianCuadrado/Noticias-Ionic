@@ -6,4 +6,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-xm="12" size-sm="6" size-md="4" size-lg="3"
+       *ngFor="let articulo of articulos;let i = index">
+          <ion-card (click)="openActionsSheet(i)">
+              <ion-card-header>
+                  <ion-card-subtitle>{{articulo.author}}</ion-card-subtitle>
+                  <ion-card-title>{{articulo.title}}</ion-card-title>
+                </ion-card-header>
+              <ion-img src="{{articulo.urlToImage}}"></ion-img>
+              <ion-card-content>
+                <p>{{articulo.content}}</p>
+              </ion-card-content>
+            </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

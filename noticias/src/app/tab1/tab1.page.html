@@ -7,11 +7,19 @@
 </ion-header>
 
 <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-xm="12" size-sm="6" size-md="4" size-lg="3"
        *ngFor="let articulo of articulos">
-          <ion-card>
+          <ion-card (click)="openActionsSheet(articulo.url, articulo.title, articulo)">
               <ion-card-header>
                   <ion-card-subtitle>{{articulo.author}}</ion-card-subtitle>
                   <ion-card-title>{{articulo.title}}</ion-card-title>
